@@ -8,19 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-import joblib
-
-import os
-
-st.write("Current directory:", os.getcwd())
-st.write("Files in directory:", os.listdir())
-
-try:
-    model = joblib.load("diabetes_pipeline.pkl")
-    st.success("Model loaded successfully!")
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-    st.stop()
+model = joblib.load("diabetes_pipeline.pkl")
 
 
 st.markdown("""
